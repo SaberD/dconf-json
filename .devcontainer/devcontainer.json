@@ -9,7 +9,8 @@
     "vscode": {
       "extensions": [
         "dbaeumer.vscode-eslint",
-        "Orta.vscode-jest"
+        "Orta.vscode-jest",
+        "mhutchie.git-graph"
       ]
     }
   }
