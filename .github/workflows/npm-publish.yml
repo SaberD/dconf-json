@@ -11,10 +11,10 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v4
         with:
-          node-version: 16
+          node-version: 20
       - run: npm ci
       - run: npm test
 
@@ -25,10 +25,10 @@ jobs:
       contents: read
       id-token: write
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v4
         with:
-          node-version: 16
+          node-version: 20
           registry-url: https://registry.npmjs.org/
       - name: Sync version from tag
         run: |
@@ -38,7 +38,6 @@ jobs:
       - run: npm publish --access public
         env:
           NPM_CONFIG_PROVENANCE: "true"
-          NODE_AUTH_TOKEN: ""
 
   publish-gpr:
     needs: build
@@ -47,10 +46,10 @@ jobs:
       contents: read
       packages: write
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v4
         with:
-          node-version: 16
+          node-version: 20
           registry-url: https://npm.pkg.github.com/
           scope: '@saberd'
       - name: Sync version from tag
