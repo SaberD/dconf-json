@@ -1,0 +1,16 @@
+{
+  "name": "dconf-json",
+  "image": "mcr.microsoft.com/devcontainers/javascript-node:16",
+  "features": {
+    "ghcr.io/devcontainers/features/common-utils:2": {}
+  },
+  "postCreateCommand": "sudo apt-get install -y dconf-cli && npm install",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "dbaeumer.vscode-eslint",
+        "Orta.vscode-jest"
+      ]
+    }
+  }
+}
