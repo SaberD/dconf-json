@@ -20,6 +20,8 @@ function arraysAreEqual (array1, array2) {
 }
 
 function json_dconf (data) {
+    if (typeof data !== 'object' || data === null || Array.isArray(data))
+        throw new TypeError(`Expected a plain object but got ${Array.isArray(data) ? 'array' : typeof data}.`);
     let conf = "";
     const paths = dict_path(data);
     let current_title = [];

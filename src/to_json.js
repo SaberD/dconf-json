@@ -35,6 +35,8 @@ function nested_set (dic, keys, values) {
 }
 
 function dconf_json (dconf) {
+    if (typeof dconf !== 'string')
+        throw new TypeError(`Expected a string but got ${typeof dconf}.`);
     // Input list of string for each line.
     // Deploys a small hack by using whitespace at end of leafnode keys i.e. "media-keys " in stead of "media-keys"
     // This is important or else some conf values will get deleted because of how gnome conf structure its data is not 100% compatible with a hashtable.
